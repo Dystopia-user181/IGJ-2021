@@ -1,5 +1,5 @@
 function capOldSaves(version) {
-
+	console.log(version, initPlayer().version)
 }
 function save() {
 	localStorage.setItem("igj2021save", JSON.stringify(player));
@@ -21,10 +21,11 @@ function runReset(obj, obj2) {
 function load(save, isOnload=false) {
 	if (typeof save !== "object") return;
 	if (save === null) return;
-	if (save.version !== initPlayer().version) {
-		capOldSaves(save.version)
-	}
 	player = runParse(save, initPlayer());
+	if (save.version !== initPlayer().version) {
+		capOldSaves(save.version);
+		save.version = initPlayer().version
+	}
 }
 function runParse(obj, obj2) {
 	Object.keys(obj2).forEach(function (key, index) {
@@ -38,7 +39,19 @@ function runParse(obj, obj2) {
 	});
 	return obj;
 }
-var parsedsave = JSON.parse(localStorage.getItem("growthsimsave"));
+function removeEmpty(obj, obj2) {
+	Object.keys(obj2).forEach(function (key, index) {
+		if (obj[key] === undefined) {
+			obj[key] = obj2[key];
+		} else if (obj2[key].constructor == Object && obj[key].constructor == Object) {
+			runParse(obj[key], obj2[key]);
+		} else if (obj[key].constructor != obj2[key].constructor) {
+			obj[key] = obj2[key];
+		}
+	});
+	return obj;
+}
+var parsedsave = JSON.parse(localStorage.getItem("igj2021save"));
 if (localStorage.getItem("igj2021save") !== null) {
 	load(parsedsave, true);
 } else {

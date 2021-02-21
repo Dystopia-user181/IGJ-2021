@@ -5,7 +5,8 @@ html {
 }
 body {
 	height: 100vh;
-	background: #000;
+	width: calc(100vw - 16px);
+	display: block;
 }
 * {
 	transition: all 0.3s linear;
