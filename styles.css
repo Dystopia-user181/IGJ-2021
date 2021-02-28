@@ -9,10 +9,10 @@ body {
 	display: block;
 }
 * {
-	transition: all 0.3s linear;
+	transition: all 0.5s linear;
 	color: #fff;
 	font-family: monospace;
-	touch-action: manipulation;
+	touch-action: none;
 	user-select: none;
 }
 input {
@@ -23,7 +23,8 @@ button {
 	border: 2px solid #fff;
 	background: #000;
 	outline: none;
-	padding: 3px;
+	padding: 5px;
+	cursor: pointer;
 }
 button:hover {
 	border: 2px solid #fb7;
@@ -34,4 +35,78 @@ button:active {
 }
 button:disabled, .disabled {
 	opacity: 0.5;
+}
+
+h3 {
+	margin: 0;
+}
+
+.startButton {
+	position: absolute;
+	background: #fff;
+	box-shadow: 0px 0px 10px 20px #fff;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	cursor: pointer;
+	top: 50%;
+	left: 50%;
+	transform: translate(-100%, -100%);
+	z-index: 99;
+}
+.startButton:hover {
+	box-shadow: 0px 0px 20px 40px #fff;
+}
+
+.upg {
+	width: 400px;
+	font-size: 11px;
+	margin-top: 5px;
+}
+.bought {
+	color: #8f8;
+	border-color: #8f8;
+	opacity: 0.5;
+}
+.bought > * {
+	color: #8f8;
+}
+
+.atomBtn {
+	width: 50px;
+	height: 50px;
+	line-height: 36px;
+	text-align: center;
+	position: relative;
+	margin: 2px;
+}
+.atomBtn:before {
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-bottom: 5px;
+	margin-left: -80px;
+	padding: 8px;
+	width: 150px;
+	border-radius: 3px;
+	background: #215;
+	color: #fff;
+	text-align: center;
+	content: attr(tooltip);
+	transition-duration: 0.5s;
+	visibility: hidden;
+	opacity: 0;
+	line-height: 1.2;
+	overflow: auto;
+}
+.atomBtn:hover:before {
+	visibility: visible;
+	opacity: 0.9;
+}
+
+select {
+	background: #000;
+}
+option {
+	background: #000;
 }

@@ -6,11 +6,16 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
 	<script src="js/initGame.js" defer></script>
 	<script src="js/game.js" defer></script>
+	<script src="js/buyables.js" defer></script>
+	<script src="js/upgrades.js" defer></script>
+	<script src="js/stars.js" defer></script>
+	<script src="js/utils.js" defer></script>
 	<script src="js/saving.js" defer></script>
 	<script src="js/v.js" defer></script>
+	<script src="js/canvas.js" defer></script>
 </head>
 <body>
 	<div id="v">
-		<app></app>
+		<app :startColour="startColour" :startOpacity="startOpacity"></app>
 	</div>
 </body>

@@ -31,6 +31,8 @@ function runParse(obj, obj2) {
 	Object.keys(obj2).forEach(function (key, index) {
 		if (obj[key] === undefined) {
 			obj[key] = obj2[key];
+		} else if (obj[key] === null) {
+			console.log(key, index, obj, obj2)
 		} else if (obj2[key].constructor == Object && obj[key].constructor == Object) {
 			runParse(obj[key], obj2[key]);
 		} else if (obj[key].constructor != obj2[key].constructor) {
